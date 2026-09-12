@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Justine Cancio — Multi-Media Artist. Drawings, graphics design, photography, and game systems design." />
+  <title>Justine Cancio — Multi-Media Artist</title>
+  <link rel="icon" href="images/profile/Picture-Cancio.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      var theme = localStorage.getItem('theme');
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <nav class="nav__inner" aria-label="Primary">
+      <a class="nav__brand" href="#top">JC<span class="nav__brand-dot">.</span></a>
+      <ul class="nav__list" id="navList">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#languages">Languages</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav__cta" href="#contact">Hire Me</a></li>
+      </ul>
+      <div class="nav__controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle__track">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <span class="theme-toggle__knob"></span>
+          </span>
+        </button>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__inner container">
+        <div class="hero__text">
+          <p class="hero__eyebrow">Hello, I&rsquo;m</p>
+          <h1 class="hero__name">Justine Cancio</h1>
+          <p class="hero__role">Multi-Media Artist &amp; Game System Designer</p>
+          <p class="hero__bio">
+            Never sleeps. Brain runs on Adobe and anxiety. I design games, draw worlds,
+            and make pixels feel something.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#gallery">View My Work</a>
+            <a class="btn btn--ghost" href="#contact">Get in Touch</a>
+          </div>
+          <ul class="hero__contacts">
+            <li><a href="tel:09460054497">&#9742; 0946 005 4497</a></li>
+            <li><a href="mailto:justinecancio06@gmail.com">&#9993; justinecancio06@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="hero__photo">
+          <div class="hero__photo-frame">
+            <img src="images/profile/Picture-Cancio.png" alt="Portrait of Justine Cancio" width="480" height="480" />
+          </div>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#about" aria-label="Scroll to about">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="section__head">
+          <span class="section__tag">About</span>
+          <h2 class="section__title">The artist behind the anxiety.</h2>
+        </div>
+        <div class="about__body">
+          <p>
+            Hello! I&rsquo;m a <strong>Multi-Media Artist</strong> — which basically means
+            I never sleep and my brain runs on Adobe and anxiety. I work across drawing,
+            graphics design, and photography, blending traditional illustration instincts
+            with a digital-first workflow.
+          </p>
+          <p>
+            Beyond static media, I design game systems. My current capstone project is a
+            complete 2D RPG where I handle the system design that keeps every character,
+            quest, and battle loop ticking.
+          </p>
+          <ul class="about__skills">
+            <li>Drawing</li>
+            <li>Photography</li>
+            <li>Videography</li>
+            <li>Graphic Design</li>
+            <li>Video Editing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <span class="section__tag">Skills</span>
+          <h2 class="section__title">What I bring to the canvas.</h2>
+        </div>
+        <ul class="skills__grid">
+          <li class="skill-card">
+            <svg class="skill-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+            <h3 class="skill-card__title">Drawing</h3>
+            <p class="skill-card__desc">Character art, portraits and illustrations in traditional and digital media.</p>
+          </li>
+          <li class="skill-card">
+            <svg class="skill-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <h3 class="skill-card__title">Photography</h3>
+            <p class="skill-card__desc">Landscapes, portraits and moments captured with an eye for light and composition.</p>
+          </li>
+          <li class="skill-card">
+            <svg class="skill-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            <h3 class="skill-card__title">Videography</h3>
+            <p class="skill-card__desc">As a multi-media artist, capturing movement is part of the craft.</p>
+          </li>
+          <li class="skill-card">
+            <svg class="skill-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            <h3 class="skill-card__title">Graphic Design</h3>
+            <p class="skill-card__desc">Posters, magazines and brand pieces laid out in the Adobe suite.</p>
+          </li>
+          <li class="skill-card">
+            <svg class="skill-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+            <h3 class="skill-card__title">Video Editing</h3>
+            <p class="skill-card__desc">Cutting, color and motion that turn raw footage into a finished story.</p>
+          </li>
+        </ul>
+
+        <div class="programming-panel">
+          <div class="programming-panel__head">
+            <svg class="programming-panel__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            <div>
+              <h3 class="programming-panel__title">Programming</h3>
+              <p class="programming-panel__sub">The code side of my multi-media brain.</p>
+            </div>
+          </div>
+          <ul class="programming-panel__tags">
+            <li>PHP</li>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section class="section languages" id="languages">
+      <div class="container languages__inner">
+        <div class="section__head">
+          <span class="section__tag">Languages</span>
+          <h2 class="section__title">Spoken &amp; written proficiency.</h2>
+        </div>
+        <div class="lang-list">
+          <div class="lang-row">
+            <div class="lang-row__head">
+              <span class="lang-row__name">English</span>
+              <span class="lang-row__pct">90%</span>
+            </div>
+            <div class="lang-row__track"><span class="lang-row__fill" style="--pct: 90%;"></span></div>
+          </div>
+          <div class="lang-row">
+            <div class="lang-row__head">
+              <span class="lang-row__name">Tagalog</span>
+              <span class="lang-row__pct">100%</span>
+            </div>
+            <div class="lang-row__track"><span class="lang-row__fill" style="--pct: 100%;"></span></div>
+          </div>
+          <div class="lang-row">
+            <div class="lang-row__head">
+              <span class="lang-row__name">Ilocano</span>
+              <span class="lang-row__pct">100%</span>
+            </div>
+            <div class="lang-row__track"><span class="lang-row__fill" style="--pct: 100%;"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <span class="section__tag">Experience</span>
+          <h2 class="section__title">Where I&rsquo;ve been spending my brain cells.</h2>
+        </div>
+
+        <article class="exp-card">
+          <div class="exp-card__media">
+            <img src="images/screenshots/abraquest.png" alt="Screenshot of the 2D RPG capstone game project" loading="eager" />
+          </div>
+          <div class="exp-card__body">
+            <span class="exp-card__badge">2024 — Present</span>
+            <h3 class="exp-card__title">Capstone Project — System Designer</h3>
+            <p class="exp-card__subtitle">2D RPG System Game</p>
+            <p>
+              Designing the core gameplay systems of a 2D RPG — combat, progression,
+              quest structure, and player economy. Turning scattered mechanics into a
+              coherent system that keeps the game balanced and fun.
+            </p>
+            <ul class="exp-card__tags">
+              <li>Game Design</li>
+              <li>System &amp; Balance</li>
+              <li>2D RPG</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <span class="section__tag">Education</span>
+          <h2 class="section__title">The classrooms behind the pixels.</h2>
+        </div>
+
+        <!-- Formal Education -->
+        <div class="edu-block">
+          <h3 class="edu-block__title">Formal Education</h3>
+
+          <div class="edu-cards">
+            <div class="edu-card">
+              <span class="edu-card__badge">Secondary</span>
+              <h4 class="edu-card__school">Manabo National High School</h4>
+              <p class="edu-card__date">2021 — 2023</p>
+            </div>
+
+            <div class="edu-card">
+              <span class="edu-card__badge">Tertiary</span>
+              <h4 class="edu-card__school">Data Center College of the Philippines — Bangued</h4>
+              <p class="edu-card__date">2023 — Present</p>
+              <div class="edu-card__project">
+                <strong>Featured Capstone: System Designer</strong>
+                <span>Designing a 2D RPG System Game</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="edu-block">
+          <h3 class="edu-block__title">Certifications</h3>
+
+          <div class="cert-list">
+            <article class="cert-card">
+              <img class="cert-card__img" src="images/certificate/DOST.png" data-file="DOST.png" alt="Startup Now Cordillera certificate" loading="lazy" />
+              <div class="cert-card__body">
+                <span class="cert-card__org">DOST — Cordillera Administrative Region (iHub)</span>
+                <h4 class="cert-card__title">Startup Now Cordillera: Exploring Programs, Funding, and Opportunities for Aspiring Startups</h4>
+                <span class="cert-card__year">2026</span>
+                <p class="cert-card__desc">
+                  Participated in a regional startup webinar hosted by DOST-CAR and iHub, gaining
+                  insights into government funding, support programs, and growth opportunities
+                  for tech ventures.
+                </p>
+              </div>
+            </article>
+
+            <article class="cert-card">
+              <img class="cert-card__img" src="images/certificate/NCII.png" data-file="NCII.png" alt="TESDA Computer Systems Servicing NC II certificate" loading="lazy" />
+              <div class="cert-card__body">
+                <span class="cert-card__org">TESDA</span>
+                <h4 class="cert-card__title">Computer Systems Servicing NC II</h4>
+                <span class="cert-card__year">2025</span>
+                <p class="cert-card__desc">
+                  Earned national certification in computer systems servicing, demonstrating core
+                  competencies in assembling hardware, configuring computer networks, setting up
+                  servers, and maintaining systems.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <h4 class="edu-block__subtitle">Additional Certificates — Online Art Collaborations</h4>
+          <div class="cert-extra">
+            <article class="cert-extra__card">
+              <img class="cert-extra__img" src="images/certificate/JJK CERT.jpg" data-file="JJK CERT.jpg" alt="Jujutsu Kaisen art collaboration certificate" loading="lazy" />
+              <h5>Jujutsu Kaisen Art Collaboration</h5>
+              <span class="cert-card__year">July, 2026</span>
+            </article>
+            <article class="cert-extra__card">
+              <img class="cert-extra__img" src="images/certificate/SL.jpg" data-file="SL.jpg" alt="Solo Leveling art collaboration certificate" loading="lazy" />
+              <h5>Solo Leveling Art Collaboration</h5>
+              <span class="cert-card__year">August, 2026</span>
+            </article>
+            <article class="cert-extra__card">
+              <img class="cert-extra__img" src="images/certificate/MC.jpg" data-file="MC.jpg" alt="Minecraft art collaboration certificate" loading="lazy" />
+              <h5>Minecraft Art Collaboration</h5>
+              <span class="cert-card__year">August, 2026</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <span class="section__tag">Portfolio</span>
+          <h2 class="section__title">Selected Work</h2>
+        </div>
+
+        <div class="gallery__tabs" role="tablist" aria-label="Work categories">
+          <button class="gallery__tab is-active" role="tab" aria-selected="true" data-folder="drawings">Drawings</button>
+          <button class="gallery__tab" role="tab" aria-selected="false" data-folder="graphicsdesign">Graphics Design</button>
+          <button class="gallery__tab" role="tab" aria-selected="false" data-folder="photography">Photography</button>
+          <button class="gallery__tab" role="tab" aria-selected="false" data-folder="certificate">Certificates</button>
+        </div>
+
+        <p class="gallery__hint" id="galleryHint"></p>
+        <div class="gallery__grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container contact__inner">
+        <div class="section__head section__head--center">
+          <span class="section__tag">Contact</span>
+          <h2 class="section__title">Let&rsquo;s make something.</h2>
+        </div>
+        <p class="contact__lead">
+          Commissions, collabs, or just want to talk about game design? My inbox is
+          always open.
+        </p>
+        <div class="contact__cards">
+          <a class="contact__card" href="mailto:justinecancio06@gmail.com">
+            <span class="contact__card-icon">&#9993;</span>
+            <span class="contact__card-label">Email</span>
+            <span class="contact__card-value">justinecancio06@gmail.com</span>
+          </a>
+          <a class="contact__card" href="tel:09460054497">
+            <span class="contact__card-icon">&#9742;</span>
+            <span class="contact__card-label">Phone</span>
+            <span class="contact__card-value">0946 005 4497</span>
+          </a>
+          <a class="contact__card" href="https://www.facebook.com/Justine.James.Cancio/" target="_blank" rel="noopener">
+            <span class="contact__card-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+            </span>
+            <span class="contact__card-label">Facebook</span>
+            <span class="contact__card-value">Justine James Cancio</span>
+          </a>
+          <a class="contact__card" href="https://github.com/justinecancio06-hub" target="_blank" rel="noopener">
+            <span class="contact__card-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.17c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.68-1.28-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.02 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.82 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.26 5.65.41.35.78 1.06.78 2.13v3.16c0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            </span>
+            <span class="contact__card-label">GitHub</span>
+            <span class="contact__card-value">justinecancio06-hub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year"></span> Justine Cancio. Made with Adobe &amp; anxiety.</p>
+      <div class="footer__links">
+        <a href="https://www.facebook.com/Justine.James.Cancio/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://github.com/justinecancio06-hub" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:justinecancio06@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">&#10005;</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+    <p class="lightbox__caption" id="lightboxCaption"></p>
+    <button class="lightbox__prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+    <button class="lightbox__next" id="lightboxNext" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
