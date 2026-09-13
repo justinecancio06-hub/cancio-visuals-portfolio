@@ -71,10 +71,12 @@
       label: 'Certificates',
       hint: 'Certificates & achievements.',
       files: [
+        'BALAGTASAN.jpg',
+        'DICT.png',
         'DOST.png',
-        'JJK CERT.jpg',
-        'MC.jpg',
         'NCII.png',
+        'MC.jpg',
+        'JJK CERT.jpg',
         'SL.jpg'
       ]
     }
@@ -236,6 +238,29 @@
     nav.classList.toggle('scrolled', window.scrollY > 10);
   }, { passive: true });
 
+  /* ---------- Active nav section highlight ---------- */
+  var sectionLinks = Array.prototype.filter.call(
+    document.querySelectorAll('.nav__list a[href^="#"]'),
+    function (link) { return !link.classList.contains('nav__cta'); }
+  );
+  var trackedSections = sectionLinks
+    .map(function (link) {
+      return document.querySelector(link.getAttribute('href'));
+    })
+    .filter(Boolean);
+
+  var sectionObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var href = '#' + entry.target.id;
+      sectionLinks.forEach(function (link) {
+        link.classList.toggle('is-active', link.getAttribute('href') === href);
+      });
+    });
+  }, { rootMargin: '-38% 0px -56% 0px', threshold: 0 });
+
+  trackedSections.forEach(function (sec) { sectionObserver.observe(sec); });
+
   /* ---------- Reveal on scroll ---------- */
   var revealEls = document.querySelectorAll('.section__head, .exp-card, .contact__card, .edu-card, .cert-card, .cert-extra__card, .skill-card, .lang-list, .programming-panel, .hero__inner');
   var io = new IntersectionObserver(function (entries) {
@@ -257,6 +282,8 @@
 
   function setThemeAttr(theme, persist) {
     htmlEl.setAttribute('data-theme', theme);
+    htmlEl.classList.toggle('dark-theme', theme === 'dark');
+    htmlEl.classList.toggle('light-theme', theme === 'light');
     themeToggle.setAttribute('aria-pressed', String(theme === 'light'));
     if (persist) {
       try { localStorage.setItem('theme', theme); } catch (e) {}
