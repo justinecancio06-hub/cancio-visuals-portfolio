@@ -348,17 +348,17 @@
             <article class="cert-extra__card">
               <img class="cert-extra__img" src="images/certificate/JJK CERT.jpg" data-file="JJK CERT.jpg" alt="Jujutsu Kaisen art collaboration certificate" loading="lazy" />
               <h5>Jujutsu Kaisen Art Collaboration</h5>
-              <span class="cert-card__year">July, 2026</span>
+              <span class="cert-card__year">July 31, 2026</span>
             </article>
             <article class="cert-extra__card">
               <img class="cert-extra__img" src="images/certificate/SL.jpg" data-file="SL.jpg" alt="Solo Leveling art collaboration certificate" loading="lazy" />
               <h5>Solo Leveling Art Collaboration</h5>
-              <span class="cert-card__year">August, 2026</span>
+              <span class="cert-card__year"> 31, 2026</span>
             </article>
             <article class="cert-extra__card">
               <img class="cert-extra__img" src="images/certificate/MC.jpg" data-file="MC.jpg" alt="Minecraft art collaboration certificate" loading="lazy" />
               <h5>Minecraft Art Collaboration</h5>
-              <span class="cert-card__year">August, 2026</span>
+              <span class="cert-card__year">August 31, 2026</span>
             </article>
           </div>
         </div>
@@ -445,15 +445,32 @@
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
     <button class="lightbox__close" id="lightboxClose" aria-label="Close">&#10005;</button>
-    <img class="lightbox__img" id="lightboxImg" src="" alt="" />
-    <p class="lightbox__caption" id="lightboxCaption"></p>
+    <div class="lightbox__view" id="lightboxView">
+      <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+      <p class="lightbox__caption" id="lightboxCaption"></p>
+      <aside class="lightbox__details" id="lightboxDetails" aria-label="Certificate details">
+        <h3 class="lightbox__details-heading">Certificate Details</h3>
+        <div class="lightbox__details-row" id="lightboxOrgRow" hidden>
+          <span class="lightbox__details-label">Organization</span>
+          <p class="lightbox__details-value" id="lightboxOrg"></p>
+        </div>
+        <div class="lightbox__details-row" id="lightboxTitleRow" hidden>
+          <span class="lightbox__details-label">Title</span>
+          <p class="lightbox__details-value" id="lightboxTitle"></p>
+        </div>
+        <div class="lightbox__details-row" id="lightboxYearRow" hidden>
+          <span class="lightbox__details-label">Year</span>
+          <p class="lightbox__details-value" id="lightboxYear"></p>
+        </div>
+        <div class="lightbox__details-row" id="lightboxDescRow" hidden>
+          <span class="lightbox__details-label">Description</span>
+          <p class="lightbox__details-value" id="lightboxDesc"></p>
+        </div>
+      </aside>
+    </div>
     <button class="lightbox__prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
     <button class="lightbox__next" id="lightboxNext" aria-label="Next image">&#8250;</button>
   </div>
-
-  <!-- CUSTOM CURSOR -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
 
   <script src="js/main.js"></script>
 </body>

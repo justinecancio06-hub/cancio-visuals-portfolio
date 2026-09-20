@@ -88,6 +88,16 @@
   var lightbox = document.getElementById('lightbox');
   var lightboxImg = document.getElementById('lightboxImg');
   var lightboxCaption = document.getElementById('lightboxCaption');
+  var lightboxOrg = document.getElementById('lightboxOrg');
+  var lightboxTitle = document.getElementById('lightboxTitle');
+  var lightboxYear = document.getElementById('lightboxYear');
+  var lightboxDesc = document.getElementById('lightboxDesc');
+  var lightboxOrgRow = document.getElementById('lightboxOrgRow');
+  var lightboxTitleRow = document.getElementById('lightboxTitleRow');
+  var lightboxYearRow = document.getElementById('lightboxYearRow');
+  var lightboxDescRow = document.getElementById('lightboxDescRow');
+  var lightboxTrigger = null;
+  var splitMode = false;
   var currentFolder = 'drawings';
   var currentIndex = 0;
   var currentFiles = [];
@@ -115,7 +125,7 @@
     var frag = document.createDocumentFragment();
     currentFiles.forEach(function (file, i) {
       var figure = document.createElement('figure');
-      figure.className = 'gallery__item';
+      figure.className = currentFolder === 'certificate' ? 'gallery__item gallery__item--cert' : 'gallery__item';
       figure.style.animationDelay = (i * 40) + 'ms';
 
       var img = document.createElement('img');
@@ -129,9 +139,25 @@
 
       figure.appendChild(img);
       figure.appendChild(caption);
-      figure.addEventListener('click', function () {
-        openLightbox(i);
-      });
+
+      if (currentFolder === 'certificate') {
+        var more = document.createElement('button');
+        more.type = 'button';
+        more.className = 'cert-card__more';
+        more.textContent = 'Click for more detail';
+        more.addEventListener('click', function (e) {
+          e.stopPropagation();
+          lightboxTrigger = more;
+          openLightbox(i, true);
+        });
+        figure.appendChild(more);
+      }
+
+      if (currentFolder !== 'certificate') {
+        figure.addEventListener('click', function () {
+          openLightbox(i);
+        });
+      }
       frag.appendChild(figure);
     });
 
@@ -143,9 +169,11 @@
     return /^Vexel/i.test(file);
   }
 
-  function openLightbox(index) {
+  function openLightbox(index, split) {
     currentIndex = index;
+    splitMode = !!split;
     updateLightbox();
+    lightbox.classList.toggle('lightbox--split', splitMode && currentFolder === 'certificate');
     lightbox.hidden = false;
     document.body.style.overflow = 'hidden';
   }
@@ -153,12 +181,47 @@
   function closeLightbox() {
     lightbox.hidden = true;
     document.body.style.overflow = '';
+    if (lightboxTrigger) {
+      if (lightboxTrigger.focus) lightboxTrigger.focus();
+      lightboxTrigger = null;
+    }
   }
 
   function updateLightbox() {
     var file = currentFiles[currentIndex];
     lightboxImg.src = encodeURI('images/' + currentFolder + '/' + file);
     lightboxCaption.textContent = prettyName(file);
+    if (currentFolder === 'certificate') fillLightboxDetails(file);
+  }
+
+  function fillLightboxDetails(file) {
+    var found = null;
+    document.querySelectorAll('.cert-card__img, .cert-extra__img').forEach(function (img) {
+      if (img.dataset.file && img.dataset.file.toLowerCase() === file.toLowerCase()) {
+        found = img;
+      }
+    });
+    var card = found ? found.closest('.cert-card, .cert-extra__card') : null;
+    if (!card) {
+      console.warn('Certificate details not found for: ' + file);
+      lightboxOrgRow.hidden = true;
+      lightboxTitleRow.hidden = true;
+      lightboxYearRow.hidden = true;
+      lightboxDescRow.hidden = true;
+      return;
+    }
+    var org = card.querySelector('.cert-card__org');
+    var title = card.querySelector('.cert-card__title') || card.querySelector('h5');
+    var year = card.querySelector('.cert-card__year');
+    var desc = card.querySelector('.cert-card__desc');
+    lightboxOrg.textContent = org ? org.textContent : '';
+    lightboxTitle.textContent = title ? title.textContent : '';
+    lightboxYear.textContent = year ? year.textContent : '';
+    lightboxDesc.textContent = desc ? desc.textContent : '';
+    lightboxOrgRow.hidden = !org;
+    lightboxTitleRow.hidden = !title;
+    lightboxYearRow.hidden = !year;
+    lightboxDescRow.hidden = !desc;
   }
 
   function stepLightbox(dir) {
@@ -207,6 +270,7 @@
     currentFiles = files;
   }
 
+  /* ---------- Lightbox keyboard ---------- */
   document.addEventListener('keydown', function (e) {
     if (lightbox.hidden) return;
     if (e.key === 'Escape') closeLightbox();
@@ -295,63 +359,6 @@
     var current = htmlEl.getAttribute('data-theme');
     setThemeAttr(current === 'dark' ? 'light' : 'dark', true);
   });
-
-  /* ---------- Custom cursor ---------- */
-  var finePointer = window.matchMedia('(pointer: fine)').matches;
-  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (finePointer) {
-    var cursorDot = document.querySelector('.cursor-dot');
-    var cursorRing = document.querySelector('.cursor-ring');
-    var mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    var ringPos = { x: mouse.x, y: mouse.y };
-    var cursorShown = false;
-    var rafId = null;
-
-    window.addEventListener('mousemove', function (e) {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-      cursorDot.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
-      if (!cursorShown) {
-        cursorShown = true;
-        ringPos.x = e.clientX;
-        ringPos.y = e.clientY;
-        htmlEl.classList.add('cursor-on');
-      }
-      if (rafId === null && !reducedMotion) {
-        rafId = requestAnimationFrame(cursorLoop);
-      }
-    });
-
-    document.addEventListener('mouseover', function (e) {
-      if (e.target.closest('a, button, .gallery__item, [role="button"], label, input, textarea, select')) {
-        document.body.classList.add('cursor-hovering');
-      }
-    });
-    document.addEventListener('mouseout', function (e) {
-      if (e.target.closest('a, button, .gallery__item, [role="button"], label, input, textarea, select')) {
-        document.body.classList.remove('cursor-hovering');
-      }
-    });
-
-    htmlEl.addEventListener('mouseleave', function () { htmlEl.classList.remove('cursor-on'); });
-    htmlEl.addEventListener('mouseenter', function () { htmlEl.classList.add('cursor-on'); });
-
-    function cursorLoop() {
-      ringPos.x += (mouse.x - ringPos.x) * 0.22;
-      ringPos.y += (mouse.y - ringPos.y) * 0.22;
-      cursorRing.style.transform = 'translate(' + ringPos.x + 'px, ' + ringPos.y + 'px) translate(-50%, -50%)';
-      rafId = requestAnimationFrame(cursorLoop);
-    }
-
-    if (reducedMotion) {
-      window.addEventListener('mousemove', function (e) {
-        cursorRing.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
-      });
-    } else {
-      rafId = requestAnimationFrame(cursorLoop);
-    }
-  }
 
   renderGallery();
 })();
