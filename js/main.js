@@ -156,8 +156,7 @@
   }
 
   function updateLightbox() {
-    var folder = WORKS[currentFolder];
-    var file = folder.files[currentIndex];
+    var file = currentFiles[currentIndex];
     lightboxImg.src = encodeURI('images/' + currentFolder + '/' + file);
     lightboxCaption.textContent = prettyName(file);
   }
